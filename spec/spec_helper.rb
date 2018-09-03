@@ -1,5 +1,7 @@
 require "bundler/setup"
 require "pipelines/ruby"
+require 'simplecov'
+require 'simplecov-cobertura'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
@@ -12,3 +14,11 @@ RSpec.configure do |config|
     c.syntax = :expect
   end
 end
+
+SimpleCov.formatters = [
+  SimpleCov::Formatter::HTMLFormatter,
+  SimpleCov::Formatter::CoberturaFormatter
+]
+
+SimpleCov.start
+
