@@ -18,3 +18,13 @@ steps:
 
 - script: bundle exec rake
   displayName: 'bundle exec rake'
+
+# - script: bundle exec rspec spec --format RspecJunitFormatter --out test_results/TEST-rspec.xml
+
+- task: PublishTestResults@2
+
+- task: PublishCodeCoverageResults@1
+  inputs:
+    codeCoverageTool: Cobertura
+    summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/coverage.xml'
+    reportDirectory: '$(System.DefaultWorkingDirectory)/**/coverage'
