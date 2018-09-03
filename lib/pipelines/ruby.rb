@@ -6,15 +6,15 @@ module Pipelines
   end
   
   module StringOps
-    def to_upper(string)
+    def self.to_upper(string)
       string.upcase
     end
 
-    def to_lower(string)
+    def self.to_lower(string)
       string.downcase
     end
 
-    def to_empty(string)
+    def self.to_empty(string)
       ""
     end
   end
