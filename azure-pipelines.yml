@@ -22,7 +22,8 @@ steps:
 # - script: bundle exec rspec spec --format RspecJunitFormatter --out test_results/TEST-rspec.xml
 
 - task: PublishTestResults@2
-
+  condition: succeededOrFailed()
+  
 - task: PublishCodeCoverageResults@1
   inputs:
     codeCoverageTool: Cobertura
